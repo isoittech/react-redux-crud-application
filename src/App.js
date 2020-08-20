@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 
 const Dog = (props) => {
   return (
@@ -9,9 +10,14 @@ const Dog = (props) => {
   )
 }
 
-Dog.defaultProps = {
-  esa: "骨"
+Dog.propTypes = {
+  name: PropTypes.string,
+  esa: PropTypes.string.isRequired
 }
+
+// Dog.defaultProps = {
+//   esa: "骨"
+// }
 
 const App = () => {
   const bleeders = [

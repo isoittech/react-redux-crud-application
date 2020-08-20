@@ -1,39 +1,32 @@
-import React from 'react';
-import PropTypes from 'prop-types'
+import React, { Component } from 'react';
 
-const Dog = (props) => {
-  return (
-    <div>
-      ワウ　ワウ　ワウ！<br></br>
-      （{props.bleederName}、こっちこっち！、{props.esa}くれぇええーー)
-    </div>
-  )
-}
 
-Dog.propTypes = {
-  name: PropTypes.string,
-  esa: PropTypes.string.isRequired
-}
+const App = () => (<Counter></Counter>)
 
-// Dog.defaultProps = {
-//   esa: "骨"
-// }
+class Counter extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { count: 0 }
+  }
 
-const App = () => {
-  const bleeders = [
-    { name: "ほりけん", esa: "ペディグリーチャム" },
-    { name: "たいぞう", esa: "骨形のガム" },
-    { name: "森さん" }
-  ]
-  return (
-    <div>
-      {
-        bleeders.map((bleeder, index) => {
-          return <Dog bleederName={bleeder.name} esa={bleeder.esa} key={index}></Dog>
-        })
-      }
-    </div>
-  )
+  handlePlusButton = () => {
+    // stateの値を変えたいときは
+    // setStateを必ず呼ぶ
+    this.setState({ count: this.state.count + 1 })
+  }
+  handleMinusButton = () => {
+    this.setState({ count: this.state.count - 1 })
+  }
+  // setStateを実行するとコールバックとしてrender()が呼ばれる。
+  render() {
+    return (
+      <React.Fragment>
+        <div>count: {this.state.count} </div>
+        <button onClick={this.handlePlusButton}>+1</button>
+        <button onClick={this.handleMinusButton}>-1</button>
+      </React.Fragment>
+    )
+  }
 }
 
 export default App;

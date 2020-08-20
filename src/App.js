@@ -47,14 +47,45 @@ import React, { Component } from 'react';
 //   }
 // }
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <label htmlFor="bar">bar</label>
-        <input type="text" onChange={() => console.log('Yes?')}></input>;
-      </div>
-    )
-  }
+// ★Classコンポーネント★
+// class App extends Component {
+//   render() {
+//     return (
+//       <div>
+//         <label htmlFor="bar">bar</label>
+//         <input type="text" onChange={() => console.log('Yes?')}></input>;
+//       </div>
+//     )
+//   }
+// }
+
+// ★関数コンポーネント★
+// const App = () => {
+//   return (
+//     <div>
+//       <label htmlFor="bar">bar</label>
+//       <input type="text" onChange={() => console.log('Yes?')}></input>
+//     </div>
+//   )
+// }
+
+const Dog = () => {
+  return (
+    <div>
+      ワウ
+    </div>
+  )
 }
+
+const App = () => {
+  return (
+    <div>
+      <Dog></Dog>
+      <Dog></Dog>
+      <Dog></Dog>
+      <Dog></Dog>
+    </div>
+  )
+}
+
 export default App;

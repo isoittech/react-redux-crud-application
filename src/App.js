@@ -1,89 +1,31 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-// class App extends Component {
-//   render() {
-//     return <div>Hello, World!! - with class</div>
-//   }
-// }
-
-// JSX
-// function App() {
-//   return (
-//     <div>Hello World!!!</div>
-//   );
-// }
-
-// NO JSX
-// function App() {
-//   return React.createElement(
-//     "div",
-//     null,
-//     "Hello, World - No jsx."
-//   )
-// }
-
-// function App() {
-//   return (
-//     <h1>Hello World!!!</h1>
-//   );
-// }
-
-// 下記、エラーになる。
-// function App() {
-//   return (
-//     const val = <h1>haaaaai !!!</h1>;
-//     return val;
-//   );
-// }
-
-// class App extends Component {
-//   render() {
-//     // const target = "my self"
-//     // const val = <h1 className="foooo">haaaaai {target} !!!</h1>;
-//     // const val = <input type="button" value="Hi!" onClick={() => console.log('Yes?')}></input>;
-//     const val = <input type="text" onChange={() => console.log('Yes?')}></input>;
-
-//     return val;
-//   }
-// }
-
-// ★Classコンポーネント★
-// class App extends Component {
-//   render() {
-//     return (
-//       <div>
-//         <label htmlFor="bar">bar</label>
-//         <input type="text" onChange={() => console.log('Yes?')}></input>;
-//       </div>
-//     )
-//   }
-// }
-
-// ★関数コンポーネント★
-// const App = () => {
-//   return (
-//     <div>
-//       <label htmlFor="bar">bar</label>
-//       <input type="text" onChange={() => console.log('Yes?')}></input>
-//     </div>
-//   )
-// }
-
-const Dog = () => {
+const Dog = (props) => {
   return (
     <div>
-      ワウ
+      ワウ　ワウ　ワウ！<br></br>
+      （{props.bleederName}、こっちこっち！、{props.esa}くれぇええーー)
     </div>
   )
 }
 
+Dog.defaultProps = {
+  esa: "骨"
+}
+
 const App = () => {
+  const bleeders = [
+    { name: "ほりけん", esa: "ペディグリーチャム" },
+    { name: "たいぞう", esa: "骨形のガム" },
+    { name: "森さん" }
+  ]
   return (
     <div>
-      <Dog></Dog>
-      <Dog></Dog>
-      <Dog></Dog>
-      <Dog></Dog>
+      {
+        bleeders.map((bleeder, index) => {
+          return <Dog bleederName={bleeder.name} esa={bleeder.esa} key={index}></Dog>
+        })
+      }
     </div>
   )
 }
